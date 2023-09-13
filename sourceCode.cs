@@ -30,7 +30,7 @@ namespace Puzzle
                 }
                 else
                 {
-                    MyPuzzle = new Puzzle(8, Convert.ToInt32(8 * 8 * 0.6));
+                    MyPuzzle = new Puzzle(8, Convert.ToInt32(8 * 8 * 0.6)); // 8*8 is the size of the grid, 0.6 is some kind of difficulty modifier, maybe?
                 }
                 Score = MyPuzzle.AttemptPuzzle();
                 Console.WriteLine("Puzzle finished. Your score was: " + Score);
