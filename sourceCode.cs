@@ -57,7 +57,7 @@ namespace Puzzle
                 LoadPuzzle(Filename);
             }
 
-            public Puzzle(int Size, int StartSymbols)
+            public Puzzle(int Size, int StartSymbols) // test
             {
                 Score = 0;
                 SymbolsLeft = StartSymbols;
