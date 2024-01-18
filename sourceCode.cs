@@ -40,15 +40,19 @@ namespace Puzzle
             Console.ReadLine();
         }
 
-        class Puzzle
+        class Puzzle //Object representing a puzzle grid and its associated information
         {
-            private int Score;
-            private int SymbolsLeft;
-            private int GridSize;
-            private List<Cell> Grid;
-            private List<Pattern> AllowedPatterns;
-            private List<string> AllowedSymbols;
+            private int Score; //Score for the current game
+            private int SymbolsLeft; //Number of moves left
+            private int GridSize; //Size of the grid
+            private List<Cell> Grid; //The grid itself 
+            private List<Pattern> AllowedPatterns; //List of valid symbol structures that grant points
+            private List<string> AllowedSymbols; //List of valid symbols
 
+            /// <summary>
+            /// Constructor for a preset file puzzle
+            /// </summary>
+            /// <param name="Filename">The name of the file to be loaded</param>
             public Puzzle(string Filename)
             {
                 Grid = new List<Cell>();
@@ -57,7 +61,12 @@ namespace Puzzle
                 LoadPuzzle(Filename);
             }
 
-            public Puzzle(int Size, int StartSymbols) // test
+            /// <summary>
+            /// Constructor for a new, random puzzle
+            /// </summary>
+            /// <param name="Size">Size of the puzzle grid</param>
+            /// <param name="StartSymbols">Number of moves to start with</param>
+            public Puzzle(int Size, int StartSymbols)
             {
                 Score = 0;
                 SymbolsLeft = StartSymbols;
@@ -89,6 +98,10 @@ namespace Puzzle
                 AllowedSymbols.Add("T");
             }
 
+            /// <summary>
+            /// Load a puzzle file using StreamReader and string parsing
+            /// </summary>
+            /// <param name="Filename">Name of the file to be loaded</param>
             private void LoadPuzzle(string Filename)
             {
                 try
@@ -137,6 +150,10 @@ namespace Puzzle
                 }
             }
 
+            /// <summary>
+            /// The actual game; allows for the placement of symbols into the grid
+            /// </summary>
+            /// <returns>The score you obtained when you're finished</returns>
             public virtual int AttemptPuzzle()
             {
                 bool Finished = false;
@@ -195,11 +212,23 @@ namespace Puzzle
                 return Score;
             }
 
+            /// <summary>
+            /// Gets the current cell in the location provided
+            /// </summary>
+            /// <param name="Row">The row the desired Cell is in</param>
+            /// <param name="Column">The column the desired Cell is in</param>
+            /// <returns>The Cell desired</returns>
             private Cell GetCell(int Row, int Column)
             {
                 return Grid[(GridSize - Row) * GridSize + Column - 1];
             }
 
+            /// <summary>
+            /// 
+            /// </summary>
+            /// <param name="Row"></param>
+            /// <param name="Column"></param>
+            /// <returns></returns>
             public virtual int CheckForMatchWithPattern(int Row, int Column)
             {
                 for (var StartRow = Row + 2; StartRow >= Row; StartRow--)
@@ -244,6 +273,10 @@ namespace Puzzle
                 return 0;
             }
 
+            /// <summary>
+            /// Takes user input through a read command and returns it if the string is in the list of allowed symbols
+            /// </summary>
+            /// <returns>The symbol, if validated</returns>
             private string GetSymbolFromUser()
             {
                 string Symbol = "";
@@ -255,6 +288,10 @@ namespace Puzzle
                 return Symbol;
             }
 
+            /// <summary>
+            /// Deadass just draws a straight line 2n+1 times the grid size 
+            /// </summary>
+            /// <returns></returns>
             private string CreateHorizontalLine()
             {
                 string Line = "  ";
