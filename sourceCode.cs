@@ -302,6 +302,9 @@ namespace Puzzle
                 return Line;
             }
 
+            /// <summary>
+            /// Writes the puzzle grid to the console
+            /// </summary>
             public virtual void DisplayPuzzle()
             {
                 Console.WriteLine();
