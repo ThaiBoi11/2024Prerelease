@@ -334,6 +334,9 @@ namespace Puzzle
             }
         }
 
+        /// <summary>
+        /// A class representing a specific pattern (e.g., the Q, X and T patterns that grant points).
+        /// </summary>
         class Pattern
         {
             private string Symbol;
