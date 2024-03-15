@@ -96,6 +96,11 @@ namespace Puzzle
                 Pattern TPattern = new Pattern("T", "TTT**T**T");
                 AllowedPatterns.Add(TPattern);
                 AllowedSymbols.Add("T");
+                /* Task 1.1
+                Pattern CPattern = new Pattern("C", "CCC*CCCC*");
+                AllowedPatterns.Add(CPattern);
+                AllowedSymbols.Add("C");
+                */
             }
 
             /// <summary>
